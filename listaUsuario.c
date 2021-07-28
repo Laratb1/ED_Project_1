@@ -3,7 +3,7 @@
 #include <string.h>
 #include "usuario.h"
 //#include "playlist.h"
-#include "amigos.h"
+#include "listAmigos.h"
 
 typedef struct celUsuario CelUsuario;
 

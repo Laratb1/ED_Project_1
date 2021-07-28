@@ -1,7 +1,7 @@
 #ifndef USUARIO_H_
 #define USUARIO_H_
 
-#include "amigos.h"
+#include "listAmigos.h"
 #include "listaPlaylist.h"
 #include "listaMusica.h"
 

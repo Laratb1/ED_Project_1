@@ -3,7 +3,7 @@
 #include <string.h>
 #include "usuario.h"
 #include "listaPlaylist.h"
-#include "amigos.h"
+#include "listAmigos.h"
 
 typedef struct{ 
     char *nome;
