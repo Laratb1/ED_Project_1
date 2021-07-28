@@ -6,7 +6,7 @@
 typedef struct celAimgos CelAmigos;
 
 struct celAmigos{
-    char *nome;
+    Usuario *usuario;
     CelAmigos *prox;
 };
 

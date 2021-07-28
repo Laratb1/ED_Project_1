@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "usuario.h"
-#include "playlist.h"
+#include "listaPlaylist.h"
 #include "amigos.h"
 
 typedef struct{ 
