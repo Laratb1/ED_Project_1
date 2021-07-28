@@ -5,7 +5,7 @@
 
 typedef struct listMusica ListMusica;
 
-void inicializaListMusica(Usuario *usuario, FILE *fp);
+void inicializaListMusica(Usuario *usuario, char *fp);
 
 void destroiListMusica(ListMusica *playlist);
 

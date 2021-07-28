@@ -11,6 +11,9 @@ typedef struct{
     ListAmigos *amigos;
 }Usuario;
 
+void criaUsuario(char *nome, ListAmigos *amigos, ListMusica *musicas){
+    
+}
 
 
 
