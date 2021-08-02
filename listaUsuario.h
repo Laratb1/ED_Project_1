@@ -5,18 +5,23 @@
 
 typedef struct listUsuario ListUsuario;
 
-void inicializaListUsusarios(FILE *fp);
+ListUsuario* inicializaListUsusarios(FILE *fp);
 
 void insereUsuario(Usuario *usuario);
 
 void retiraUsuario(char *nome);
 
-void destroiListUsuario(Usuario *usuario);
+void destroiListUsuario(ListUsuario* lista);
 
-Usuario *retornaUsuario(Usuario *usuario, char *nome);
+Usuario *retornaUsuario(ListUsuario *lista, char *nome);
 
 Usuario *retornaPrimeiro(Usuario *usuario);
 
 void criaArquivoUsuarios(Usuario *usuario);
+
+
+// ---- PARA TESTE -----
+
+void imprimeListUsuario(ListUsuario* lista);
 
 #endif

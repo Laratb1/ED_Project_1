@@ -1,15 +1,18 @@
 #ifndef LISTAMUSICA_H_
 #define LISTAMUSICA_H_
 
-#include "usuario.h"
+//#include "usuario.h"
 
 typedef struct listMusica ListMusica;
+typedef struct celMusica CelMusica;
 
-void inicializaListMusica(Usuario *usuario, char *fp);
+ListMusica *inicializaListMusica(void); //ok 
 
-void destroiListMusica(ListMusica *playlist);
+void insereMusicaNaLista(ListMusica *listMusicas, FILE *playlist); //ok
 
-void alteraPlaylist(Usuario *usuario, ListMusica *musicas);
+void destroiListMusica(ListMusica *listMusica);
+
+//void alteraPlaylist(Usuario *usuario, ListMusica *musicas);
 
 void criaArquivoListMusica(ListMusica *musicas);
 

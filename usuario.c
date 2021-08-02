@@ -3,16 +3,40 @@
 #include <string.h>
 #include "usuario.h"
 #include "listaPlaylist.h"
-#include "listAmigos.h"
+#include "listaAmigos.h"
 
-typedef struct{ 
-    char *nome;
-    ListMusica *playlist;
-    ListAmigos *amigos;
-}Usuario;
+struct usuario{ 
+  char *nome;
+  ListPlaylist *playlist;
+  ListAmigos *amigos;
+};
 
-void criaUsuario(char *nome, ListAmigos *amigos, ListMusica *musicas){
+Usuario* criaUsuario(char *nome){
+  Usuario* usuario = (Usuario*)malloc(sizeof(Usuario));
+  usuario->nome = strdup(nome);
+
+  return usuario;
+}
+
+void destroiUsuario(Usuario *usuario){
+  if (usuario->playlist == NULL && usuario->amigos == NULL){
+    free(usuario->nome);
+  }
+  else if (usuario->playlist == NULL){
+    free(usuario->nome);
+    destroiListAmigos(usuario->amigos);
+  }
+  else if (usuario->amigos == NULL){
+    free(usuario->nome);
+    destroiListPlaylist(usuario->playlist);
+  }
+  else{
+    free(usuario->nome);
+    destroiListPlaylist(usuario->playlist);
+    destroiListAmigos(usuario->amigos);
+  }
     
+  free(usuario);
 }
 
 
