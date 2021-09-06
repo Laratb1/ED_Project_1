@@ -1,10 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "usuario.h"
+
 #include "playlist.h"
-#include "listaPlaylist.h"
-#include "listaAmigos.h"
 
 struct playlist{
   char *nome;
@@ -14,6 +12,7 @@ struct playlist{
 Playlist* criaPlaylist(char* nome){
   Playlist* playlist = (Playlist*)malloc(sizeof(Playlist));
   playlist->nome = strdup(nome);
+  playlist->musicas = inicializaListMusica();
 
   return playlist;
 }
@@ -27,9 +26,12 @@ ListMusica* retornaListMusica(Playlist* playlist){
 }
 
 void destroiPlaylist(Playlist* playlist){
-  if (playlist->musicas != NULL){
-    destroiListMusica(playlist->musicas);
-  }
+  destroiListMusica(playlist->musicas);
   free(playlist->nome);
   free(playlist);
+}
+
+void imprimePlaylist(Playlist* playlist){
+  printf("Nome: %s\n", playlist->nome);
+  imprimeListMusica(playlist->musicas);
 }

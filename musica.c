@@ -23,6 +23,16 @@ char *retornaCantorMusica(Musica *musica){
   return musica->cantor;
 }
 
+Musica *criaCopiaMusica(Musica* musica){
+  Musica* nova = criaMusica(musica->nome, musica->cantor);
+  return nova;
+}
+
+void imprimeMusica(Musica *musica){
+  printf("Nome: %s\n", musica->nome);
+  printf("Cantor: %s\n\n", musica->cantor);
+}
+
 void destroiMusica(Musica *musica){
   free(musica->nome);
   free(musica->cantor);

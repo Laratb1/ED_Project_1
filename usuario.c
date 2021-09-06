@@ -1,9 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 #include "usuario.h"
-#include "listaPlaylist.h"
-#include "listaAmigos.h"
 
 struct usuario{ 
   char *nome;
@@ -14,29 +13,36 @@ struct usuario{
 Usuario* criaUsuario(char *nome){
   Usuario* usuario = (Usuario*)malloc(sizeof(Usuario));
   usuario->nome = strdup(nome);
+  usuario->playlist = inicializaPlaylist();
+  usuario->amigos = inicializaListaAmigo();
 
   return usuario;
 }
 
+char *retornaNomeUsuario(Usuario *usuario){
+  return usuario->nome;
+}
+
+ListAmigos *retornaListAmigosUsuario(Usuario *usuario){
+  return usuario->amigos;
+}
+
+ListPlaylist *retornaListPlaylist(Usuario *usuario){
+  return usuario->playlist;
+}
+
 void destroiUsuario(Usuario *usuario){
-  if (usuario->playlist == NULL && usuario->amigos == NULL){
-    free(usuario->nome);
-  }
-  else if (usuario->playlist == NULL){
-    free(usuario->nome);
-    destroiListAmigos(usuario->amigos);
-  }
-  else if (usuario->amigos == NULL){
-    free(usuario->nome);
-    destroiListPlaylist(usuario->playlist);
-  }
-  else{
-    free(usuario->nome);
-    destroiListPlaylist(usuario->playlist);
-    destroiListAmigos(usuario->amigos);
-  }
+  free(usuario->nome);
+  destroiListPlaylist(usuario->playlist);
+  destroiListaAmigos(usuario->amigos);
     
   free(usuario);
+}
+
+void imprimeUsuario(Usuario* usuario){
+  printf("Nome: %s\n", usuario->nome);
+  imprimeListPlaylist(usuario->playlist);
+  imprimeListAmigos(usuario->amigos);
 }
 
 
